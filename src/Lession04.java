@@ -1,4 +1,4 @@
-public class Session04 {
+public class Lession04 {
     public static void main(String[] args) {
         String thongBao = "Xin chào";
         String hoVaTen = "Đào Duy Khang";
