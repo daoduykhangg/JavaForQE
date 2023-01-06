@@ -1,4 +1,4 @@
-public class Session05 {
+public class Lession05 {
     public static void main(String[] args) {
         String tenSach = "Lập trình java";
         int namXuatBan = 2021;
