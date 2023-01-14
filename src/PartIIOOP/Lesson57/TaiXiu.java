@@ -1,5 +1,7 @@
 package PartIIOOP.Lesson57;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,6 +11,8 @@ public class TaiXiu {
         int option;
         int luaChon;
         double datCuoc;
+        Locale lc = new Locale("vi", "VN");
+        NumberFormat numf = NumberFormat.getCurrencyInstance(lc);
         Scanner sc = new Scanner(System.in);
         do {
             printMenuTaiXiu();
@@ -16,7 +20,7 @@ public class TaiXiu {
             option = sc.nextInt();
             if (option == 1) {
                 do {
-                    System.out.println("Tài khoản của bạn: " + taiKhoanNguoiChoi + " bạn muốn đặt cược bao nhiêu?");
+                    System.out.println("Tài khoản của bạn: " + numf.format(taiKhoanNguoiChoi) + " bạn muốn đặt cược bao nhiêu?");
                     System.out.print("Đặt cược: ");
                     datCuoc = sc.nextDouble();
                 } while (datCuoc <= 0 || datCuoc > taiKhoanNguoiChoi);
@@ -35,28 +39,28 @@ public class TaiXiu {
                 if (kq == 3 || kq == 18) {
                     System.out.println("Kết quả: " + kq + " ==> Nhà cái ăn hết, bạn đã thua!");
                     taiKhoanNguoiChoi -= datCuoc;
-                    System.out.println("Tài khoản của bạn: " + taiKhoanNguoiChoi);
+                    System.out.println("Tài khoản của bạn: " + numf.format(taiKhoanNguoiChoi));
                 } else if (kq <= 11) {
                     System.out.println("Kết quả: " + kq + " ==> xỉu");
                     if (luaChon == 1) {
                         System.out.println("Bạn đã thua!");
                         taiKhoanNguoiChoi -= datCuoc;
-                        System.out.println("Tài khoản của bạn: " + taiKhoanNguoiChoi);
+                        System.out.println("Tài khoản của bạn: " + numf.format(taiKhoanNguoiChoi));
                     } else {
                         System.out.println("Bạn đã thắng!");
                         taiKhoanNguoiChoi += datCuoc;
-                        System.out.println("Tài khoản của bạn: " + taiKhoanNguoiChoi);
+                        System.out.println("Tài khoản của bạn: " + numf.format(taiKhoanNguoiChoi));
                     }
                 } else {
                     System.out.println("Kết quả: " + kq + " ==> Tài");
                     if (luaChon == 1) {
                         System.out.println("Bạn đã thắng!");
                         taiKhoanNguoiChoi += datCuoc;
-                        System.out.println("Tài khoản của bạn: " + taiKhoanNguoiChoi);
+                        System.out.println("Tài khoản của bạn: " + numf.format(taiKhoanNguoiChoi));
                     } else {
                         System.out.println("Bạn đã thua!");
                         taiKhoanNguoiChoi -= datCuoc;
-                        System.out.println("Tài khoản của bạn: " + taiKhoanNguoiChoi);
+                        System.out.println("Tài khoản của bạn: " + numf.format(taiKhoanNguoiChoi));
                     }
                 }
             }
